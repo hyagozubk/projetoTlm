@@ -542,11 +542,12 @@
                             }), (0, n.jsx)(k, {
 
                                 href: "Plataforma TLM Geral",
+                                class: "imagem1",
                                 onClick: (event) => {
                                     event.preventDefault(); // Impede a navegação padrão do link
                                     handleClick(); // Chama a função handleClick
                                 },
-                                src: (0, C.jj)("/assets/integrao.mp4"),
+                                src: (0, C.jj)("/assets/comunication.png"),
                                 shadow: {
                                     default: "#193A3E55",
                                     pressed: "#00132960"
