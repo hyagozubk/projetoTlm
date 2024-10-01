@@ -331,10 +331,7 @@
                     isFirefox: c
                 } = R(), d = r || l() || c(), u = (0, w.s)(), f = g.useRef(), h = g.useRef(null), m = g.useRef(!1), p = (0, i.c)(0), y = (0, i.c)(0), x = (0, i.c)(0);
 
-                function v() {
-                    let e = f.current;
-                    document.body.classList.remove("cursor-grabbing"), e.classList.remove("pan-camera"), (0, o.j)(p, 0, Y), (0, o.j)(y, 0, Y), (0, o.j)(x, 0, Y)
-                }
+                
                 g.useEffect(() => (document.body.style.overflow = "hidden", document.body.style["overscroll-behavior"] = "none", () => {
                     document.body.style.overflow = "", document.body.style["overscroll-behavior"] = ""
                 }), []), P(e => {
@@ -355,61 +352,37 @@
                         id: e
                     })
                 }
+                
                 function handleClick() {
                     console.log("clicado");
                 
                     // Verifica se o card já existe
-                    if (!document.getElementById("videoCard")) {
+                    if (!document.getElementById("icon")) {
                         // Cria o elemento div para o card
                         const cardDiv = document.createElement("div");
-                        cardDiv.id = "videoCard"; // Define um id para o card
+                        cardDiv.id = "icon"; // Define um id para o card
                         cardDiv.style.position = "fixed";
-                        cardDiv.style.top = "40%";
-                        cardDiv.style.left = "70%";
-                        cardDiv.style.transform = "translate(-50%, -50%)";
-                        cardDiv.style.width = "50%";
-                        cardDiv.style.height = "auto"; // Ajuste para que a altura seja proporcional
-                        cardDiv.style.backgroundColor = "#1a2a5d";
+                        cardDiv.style.top = "20%";
+                        cardDiv.style.left = "50%";
+                        cardDiv.style.opacity = "1";
+                        cardDiv.style.width = "10%";
+                        cardDiv.style.height = "10%"; // Ajuste para que a altura seja proporcional
+                        cardDiv.style.backgroundColor = "#ffff";
                         cardDiv.style.boxShadow = "0 4px 8px rgba(0, 0, 0, 0.2)";
                         cardDiv.style.zIndex = "1000";
-                        cardDiv.style.padding = "20px";
                         cardDiv.style.borderRadius = "10px";
                         cardDiv.style.overflow = "hidden";
-                
+                    
                         // Adiciona o iframe ao card
-                        cardDiv.innerHTML = `
-                            <div style="position: relative; overflow: hidden; padding-top: 56.25%; /* 16:9 aspect ratio */">
-                                <iframe src="https://share.synthesia.io/embeds/videos/01095f1c-90a0-404a-9c53-df31c6ed68b8" 
-                                    loading="lazy" 
-                                    title="Synthesia video player - Integração" 
-                                    allowfullscreen 
-                                    allow="encrypted-media; fullscreen;" 
-                                    style="position: absolute; width: 100%; height: 100%; top: 0; left: 0; border: none;">
-                                </iframe>
-                            </div>
-                        `;
-                
-                        // Adiciona um botão para fechar o card
-                        const closeButton = document.createElement("button");
-                        closeButton.innerText = "Fechar";
-                        closeButton.style.position = "absolute";
-                        closeButton.style.top = "10px";
-                        closeButton.style.right = "10px";
-                        closeButton.style.padding = "10px 20px";
-                        closeButton.style.cursor = "pointer";
-                        closeButton.style.backgroundColor = "#404040";
-                        closeButton.style.border = "none";
-                        closeButton.style.color = "#fff";
-                        closeButton.style.borderRadius = "5px";
-                
-                        // Função para remover o card ao clicar no botão de fechar
-                        closeButton.onclick = function () {
-                            document.body.removeChild(cardDiv);
-                        };
-                
-                        // Adiciona o botão de fechar ao card
-                        cardDiv.appendChild(closeButton);
-                
+                        const imgElement = document.createElement("img");
+                        imgElement.src = "assets/tlm.png"; // Caminho para o arquivo da imagem
+                        imgElement.alt = "Icon"; // Adiciona texto alternativo para a imagem
+                        imgElement.style.width = "100%"; // Garantir que a imagem preencha a largura do card
+                        imgElement.style.height = "100%"; // Ajuste para preencher a altura
+                    
+                        // Adiciona a imagem ao card
+                        cardDiv.appendChild(imgElement);
+                    
                         // Adiciona o card ao body
                         document.body.appendChild(cardDiv);
                     }
@@ -419,16 +392,21 @@
                 function handleClick2() {
                     console.log("clicado2");
                 }
+                
                 function handleClic3k() {
                     console.log("clicado3");
                 }
                 function handleClic4k() {
                     console.log("clicado4");
                 }
+                function MyComponent() {
+                    // Chama a função diretamente no corpo do componente
+                    handleClick();}
+                    MyComponent();
                 return (0, n.jsxs)(n.Fragment, {
                     children: [(0, n.jsx)("h1", {
                         className: "vh",
-                        children: "Rauno Freiberg. Devouring details. Nourishing novelty. Deploying excellence."
+                        children: ""
                     }), (0, n.jsx)(A.x, {
                         as: a.E.div,
                         css: {
@@ -437,7 +415,7 @@
                             "--grid-border": "var(--grid-width) solid var(--colors-gray4)",
                             "--crosshair-size": "calc(var(--grid-cell-size) / 4)",
                             height: "100vh",
-                            cursor: "grab",
+                            
                             touchAction: "none"
                         },
                         onTouchStart: () => {
@@ -454,22 +432,8 @@
                         onTouchEnd: () => {
                             h.current.forEach(Q)
                         },
-                        onMouseDown: () => {
-                            f.current.style.transition = "", document.body.classList.add("cursor-grabbing")
-                        },
-                        onPan: d ? void 0 : (e, t) => {
-                            let r = f.current;
-                            if (m.current) {
-                                y.stop(), x.stop();
-                                let e = y.get(),
-                                    r = x.get();
-                                y.set(e + .2 * t.delta.x), x.set(r + .2 * t.delta.y);
-                                return
-                            }
-                            p.stop(), r.classList.contains("pan-camera") || r.classList.add("pan-camera");
-                            let n = (t.offset.x + t.offset.y) * .02;
-                            n = (0, C.wY)(n, [-20, 20]), p.set(n)
-                        },
+                        
+                       
                         children: (0, n.jsxs)(A.x, {
                             ref: f,
                             as: a.E.div,
@@ -542,12 +506,11 @@
                             }), (0, n.jsx)(k, {
 
                                 href: "Plataforma TLM Geral",
-                                class: "imagem1",
                                 onClick: (event) => {
                                     event.preventDefault(); // Impede a navegação padrão do link
                                     handleClick(); // Chama a função handleClick
                                 },
-                                src: (0, C.jj)("/assets/comunication.png"),
+                                src: (0, C.jj)("/assets/Plataforma_TLM_Geral.mp4"),
                                 shadow: {
                                     default: "#193A3E55",
                                     pressed: "#00132960"
@@ -588,7 +551,7 @@
                                 }
                             }), (0, n.jsx)(k, {
                                 placeholder: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABkAAAATCAIAAADqEDFSAAAACXBIWXMAAAAAAAAD6AF+hNEZAAAE40lEQVQ4jT3RaW/aBgDGcX/VvZy0atKqdk2yplmzdU0byAHhaCAJIZAY24DvG3MEsA3Y2AYD5jKBAAnJtmpfYGKb9gV++ut5AL3drhtm027r7bbWthqWobfbjVZLbRqyptVMQ2lqrCTdymVBEhiepgUap/EMns1kEZzEpLzAC7QgMvm8CJi9nt62a4bRaLWaHbtumXXL0Not1TBy5UpZlfOVIieyBIXyIkOxJEqgnMDmJBEn8AyaoVgqg2VpluJ5BrB6PctxGi3TtC3NqMlq2TDrPcd0HMsw5GKBuE6cshxqmkqpSIp8hqXTDJ0WODwnUJLElko8x9MYgVE0AbT6fc22Oz1rtejOJ+bzsv/nk/v1efL1yX2YttQyfvDh5fXF0V9/TOoVjIRDOBTgsGglB1k1tmsWukbuNPAxFr+gWQpo2nZVbzp9czltTcfGw333adH/feU+P46nY0MuYb7PP15FPU+PfaWE4VAYh4IcdlEWEUNlO818tykef946Oz8VRA6om00uLzXqxdlYvxvqy2lnbT26T8vhZKjLRdT36U0y6n16cKqFDLHuWluVHNyUaUsTOkbO59n2Hu4TJAYUK3k+JzTqxelIc/uNxZ29mjvPy9HTYjAZNNbW5zfX54erRa+SRwg4TEBBHj+vSlBTWVu2IQa8O8FQIAWBgFSUaI7R6sW7oTbu1+eT9uO897QYruYDd6ApRcy/vwHGjlbLXkWCcThEImGRiFUl2FSZdkOwNf7E+zMIJtY/ilKOoAlVzk2G2sip3U+sfyYbrOaO26+rJezEswHGjtddEoxDwbVFxuQ8bKpUS+NsjQscvE9ex3meBmiWRdCsXBEmg8awV5uNzeWsu5o7j/ddt19TS1jAs5mKHa/m3bKYIpEQlf6Soy7XlkJZddZusIGDnZubq0JBBEiagrMZucpPBrVBV5mO9MXUfrjvLme269Rqt1jAs5GK+R7v7VsxRcAhCllbSgExFNKqMbbGnXh3Li8jFI0CQi6XRtFqmXcdZdBR7obafNJaW1Pb7alqCQ94NqC4/2HW+tcikfD/lq1xXZ33e9+dRoIYngGkQoGgaKUqjDqyY8vuoD5zjcXUXty1xl1FLeFBzyZ06V9MzFsBxOEQAYckOq4U0qZC2eu9WL/nXSQSEngaEEQeJQi5wo/sitOujpzadKTfT6yZa4w7ilrCgt5N8OJo7jbLYgqH1laBTSgFxFSojs7bDca3v30aCTEsAVA0lcHQtdWuDNpV16ndDfV715yNm6OOrJawsHcLPD+cjfSyCGKpIA79Z1kq09H5js4d7m35fYckkQayWBaEU8U82beKPaM4tMuTQW3uGnO3eddX9QoZ9m7enB8s70xZgig4RCPhEp+slTLtOtPROLtBf9p9FQr6cBQBaIaEEDh5fZWIR6ORk2gkEAoc+o8+7e/t7v26vb31w4tvv9l49Z1n793OTy+3Xr94u/H97vbr33a3Dj+/93k/HO3vfvzlLXhzhWMIIAo8hmcphqIYmqAIiiFQLAOmEpeXZ9FoyO87OD70RL8E4rHTi/Nw5MvJWTQUj58l4hfgdRwCk9k0xJAYmoXRLAxk0QyEgDzPiiInSXwux3IcRVBoFkPSWSiVSt4kL1Ng4jp5mUhcQKkkCMYZCsMwBMfTJJGmKZShUAJLUyT6N8mPFWumql/3AAAAAElFTkSuQmCC",
-                                href: "https://hyagozubk.github.io/projetoTlm/assets/Integrao.mp4",
+                                href: "http://127.0.0.1:5500/assets/Integração.mp4",
                                 onClick: (event) => {
                                     event.preventDefault(); // Impede a navegação padrão do link
                                     handleClic3k(); // Chama a função handleClick
@@ -600,7 +563,7 @@
                                 }
                             }), (0, n.jsx)(k, {
                                 placeholder: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABkAAAAZCAIAAABLixI0AAAACXBIWXMA/saoAP6AWAGv6ISmAAAGQklEQVQ4jTWSa2wUxwHHV1Vinzmf73z27Wveszv7uN2723vZPmMHm7pRlRJImlRtEaqTSBVtAsYJH5JQHgmNSCpZITxS44Ab0gZIsKE4KNTGNmD8gFAHi4QqalXUVmmqlqqq0n7o12rvgvTXaDS785vf/DVSMhkFaqIucl8sFm1sjKRSsYwF8pZRrCbgNEtxSdCSRYsmLRg0z0iO4rxB85wUTVY0aY4CpibTXJOak9F4IhJpuL+uob4htireHMV6i8dRLvyb5hjOc1LguGSSgOEcRXmOcwwHnOQNWjCIq8ZZKm5zrSsNJQgSDdG6xng00hiLp1qiiVUANHkc+BTmKMoxlOeoZOKySfMMBwxnCMpgGOIYEXICJRttDrs8vBrHJYqU5pZoY9OqaCIeiTXWRSNaMu5CzUNajoCigQscFThut1jZpGVBiwbJUuQTnEYgR1KcaKvTqIsmcFO9lFKam5KxusZIpGlVfTTytfvqlHjcAbKH1CzRCxyVDFQ2cbtNOmxaw5VMmjcI17SHS/iF75VLqBnG6uP1dZInGMBySknFEol4c6I5nqByiwuULNEDBosmKgtccXinyysu70wbHS5vt1lBUJ9hmExu/oa5/ZFcrL4+0RCRCq7ICJazrLQwBaECwTQBAUdFE7cJ2m7RNptVXKPLN7uzZm9grcmJNTnRk7PabJ4mGLSkvtstVrtAT7ZKgWXkLTMQIieEZxqCEItim2CXEI9ij5EMx4GgeYsWLFqyacnhJYdX0qySZkVB0wQzTXcwtCGQCrYILCOwzLxjC13t3Pjsk6OL3z80uenw1KY3L/b/fPLJ4YtPDE89cWT6qbemnxqd3Xxs6pm3Z7Ycu1AqlkoGCAzqYmjqmoOAlLfMr2JbQpO/OTi0c/G/z793bcfs5y+OLb107YvBmYUDy3eP377z1uKd8xcvv/Lx/3Yv/efIyt2Ozu52E5RtnuXYAsDSdSkQRiDCaxYdW2jyQwOv/nTp3y9PLO+d+3zPxMf7b/zj9dnfjty6++bv/nVq+Y8fXL40snJ3+Mbf3735545KpWyCdpcVTJJhOPTKmbyWomsLXd7w7L6DN788NPPp4Su3Dw7vH79y+eTcyjsz868dHb107o2F28vjv//yxK2/TXzyp85KR5uAHQ4vmjTLkIeBlDG4bzCf08AyuZrq37771Kf/fHn6ztjZM2OHDnx0YtvK5ROXfrH53C/3Xhr72eytlZmZsYW/fHH+s79W2sqhl8PzBgk49gmSfMZqrJwwYErZ+sP+xfkLZ37zweT01PkPP7wyPX7j5N7lfRtmRnZNH903+avDM8d2nDt76r0T7xd9t2jANovnDZylKI11KcOpz6nHSWAyoKPBtenbe9YvvbLx+uGBuaM7J4/vnz6+f+Htfdde7Z/b8Z2ZF34wsWXTyR3PjezalbFFjuqBQbIcuwS4WJeyBsvUvEwGNTjQ63/y/IMLAw/cGOj+aLD36rYHrw6uu7pz4/yB56aHtv96aM/YoYNnXh8a3f2Sz2iGggxDHoUeDV+45DPiMeJzmuFEV7Qf92Suv7hhdmvfwta+xa1rF55+YP7pnrnNa64/0z2/5euT2759ZufA+MGh0dF3XGHaQPEZcrFei+QS5BJUfd9EbpV/1Fe4+ZNH53Y/fnXiwKljp6+Nnf7s9JE/nD0yPzK0PH7y+LsXloZfmxrYOD7Q72JgQdVBugCaDXUH6VL4/BFwMPQZoboeGOjxDu/hsvut3vJDXd3r1/Y80tvz2NredV2d69f09K3uW19pX5fP9jkWbU06WLdCkOYg3YZayLKgbiOQptglyIQAqypRVSrLTE0RuYWkWojSWp23MiWcI0VGiuwgLY11B4VSNtRsqEoOQTYCLobVy0KPYp9hjyIvHEmaIo/iLMdZTvywZuRT6FPoEVCjVI1COwtokgV1C+ppDO/hQqKNgI10C2oCaFVr3dRVATUBwz0O0iyoWFCzqjoWUL9i2VA3w89VtWocDFwCHAzssF2tVmh1W1izoSmmFoKqOqrQZQsoFlBNXa15heU5CIQJtUN/B+sO1sNjw/OrjYQ6KldlrspCD12ErhqaUlsxNCVk1aQcBKotVu9/bxT3/AXQTE0x7oUpKaakuJLiqmzqiqHJTG79P3F9wtwJwKlyAAAAAElFTkSuQmCC",
-                                href: "https://hyagozubk.github.io/projetoTlm/assets/direo.mp4",
+                                href: "http://127.0.0.1:5500/assets/direo.mp4",
                                 onClick: (event) => {
                                     event.preventDefault(); // Impede a navegação padrão do link
                                     handleClic4k(); // Chama a função handleClick
@@ -733,10 +696,7 @@
                         onPointerEnter: e => {
                             "touch" !== e.pointerType && b(!0)
                         },
-                        onMouseMove: e => j({
-                            x: e.clientX,
-                            y: e.clientY
-                        }),
+                        
                         onMouseLeave: () => b(!1),
                         ...m,
                         children: x ? (0, n.jsxs)(A.x, {
