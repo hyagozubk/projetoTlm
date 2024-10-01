@@ -1211,7 +1211,7 @@
                     ref: t
                 })
             }));
-            let K = ["var(--colors-blue9)", "var(--colors-amber9)", "var(--colors-green9)"],
+            let 
                 Y = {
                     type: "spring",
                     stiffness: 150,
