@@ -460,7 +460,7 @@
 
                         // Adiciona um evento de clique à imagem
                         imgElement.onclick = function () {
-                            openModal2(); // Chama a função para abrir o modal
+                            openModal3(); // Chama a função para abrir o modal
                         };
 
                         // Adiciona a imagem ao card
