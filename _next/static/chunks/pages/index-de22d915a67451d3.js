@@ -331,7 +331,7 @@
                     isFirefox: c
                 } = R(), d = r || l() || c(), u = (0, w.s)(), f = g.useRef(), h = g.useRef(null), m = g.useRef(!1), p = (0, i.c)(0), y = (0, i.c)(0), x = (0, i.c)(0);
 
-                
+
                 g.useEffect(() => (document.body.style.overflow = "hidden", document.body.style["overscroll-behavior"] = "none", () => {
                     document.body.style.overflow = "", document.body.style["overscroll-behavior"] = ""
                 }), []), P(e => {
@@ -352,10 +352,10 @@
                         id: e
                     })
                 }
-                
+
                 function handleClick() {
                     console.log("clicado");
-                
+
                     // Verifica se o card já existe
                     if (!document.getElementById("icon")) {
                         // Cria o elemento div para o card
@@ -364,6 +364,7 @@
                         cardDiv.style.position = "fixed";
                         cardDiv.style.top = "20%";
                         cardDiv.style.left = "50%";
+                        cardDiv.style.transform = "translate(-50%, -50%)"; // Centraliza o card
                         cardDiv.style.opacity = "1";
                         cardDiv.style.width = "10%";
                         cardDiv.style.height = "10%"; // Ajuste para que a altura seja proporcional
@@ -372,27 +373,101 @@
                         cardDiv.style.zIndex = "1000";
                         cardDiv.style.borderRadius = "10px";
                         cardDiv.style.overflow = "hidden";
-                    
-                        // Adiciona o iframe ao card
+
                         const imgElement = document.createElement("img");
                         imgElement.src = "assets/tlm.png"; // Caminho para o arquivo da imagem
                         imgElement.alt = "Icon"; // Adiciona texto alternativo para a imagem
                         imgElement.style.width = "100%"; // Garantir que a imagem preencha a largura do card
                         imgElement.style.height = "100%"; // Ajuste para preencher a altura
-                    
+
+                        // Adiciona um evento de clique à imagem
+                        imgElement.onclick = function () {
+                            openModal(); // Chama a função para abrir o modal
+                        };
+
                         // Adiciona a imagem ao card
                         cardDiv.appendChild(imgElement);
-                    
+
                         // Adiciona o card ao body
                         document.body.appendChild(cardDiv);
                     }
                 }
-                
+
+
+                // Função para abrir o modal
+                function openModal() {
+                    // Cria o elemento div para o modal
+                    const modalDiv = document.createElement("div");
+                    modalDiv.id = "modal"; // Define um id para o modal
+                    modalDiv.style.position = "fixed";
+                    modalDiv.style.top = "10%";
+                    modalDiv.style.left = "57%";
+                    modalDiv.style.width = "40%";
+                    modalDiv.style.height = "40%";
+                    modalDiv.style.display = "flex";
+                    modalDiv.style.alignItems = "center";
+                    modalDiv.style.justifyContent = "center";
+                    modalDiv.style.zIndex = "2000"; // Z-index maior que o card
+                    modalDiv.style.backgroundColor = "#1a2a5d";
+                    modalDiv.style.boxShadow = "0 4px 8px rgba(0, 0, 0, 0.2)";
+                    modalDiv.style.padding = "20px";
+                    modalDiv.style.borderRadius = "10px";
+                    modalDiv.style.overflow = "hidden";
+
+                    // Cria um contêiner para manter a proporção 16:9
+                    const aspectRatioContainer = document.createElement("div");
+                    aspectRatioContainer.style.position = "relative";
+                    aspectRatioContainer.style.width = "100%";
+                    aspectRatioContainer.style.paddingBottom = "56.25%"; // 16:9 aspect ratio
+                    aspectRatioContainer.style.overflow = "hidden"; // Esconde qualquer conteúdo que ultrapasse o contêiner
+                    aspectRatioContainer.style.margin = "100px 0"; // Adiciona margem acima e abaixo do vídeo
+
+                    // Cria o iframe
+                    const iframeElement = document.createElement("iframe");
+                    iframeElement.src = "https://share.synthesia.io/embeds/videos/d1172a35-4c6f-43e2-aaf4-2898d9ba2490"; // URL do conteúdo do iframe
+                    iframeElement.style.position = "absolute"; // Posiciona o iframe dentro do contêiner
+                    iframeElement.style.top = "0";
+                    iframeElement.style.left = "0";
+                    iframeElement.style.width = "100%"; // Preenche a largura do contêiner
+                    iframeElement.style.height = "100%"; // Preenche a altura do contêiner
+                    iframeElement.style.border = "none"; // Remove a borda do iframe
+
+                    // Adiciona o iframe ao contêiner
+                    aspectRatioContainer.appendChild(iframeElement);
+
+                    // Cria o botão de fechar
+                    const closeButton = document.createElement("button");
+                    closeButton.innerText = "Fechar";
+                    closeButton.style.position = "absolute";
+                    closeButton.style.top = "10px";
+                    closeButton.style.right = "10px";
+                    closeButton.style.padding = "10px 20px";
+                    closeButton.style.cursor = "pointer";
+                    closeButton.style.backgroundColor = "#404040";
+                    closeButton.style.border = "none";
+                    closeButton.style.color = "#fff";
+                    closeButton.style.borderRadius = "5px";
+
+                    // Adiciona um evento ao botão para fechar o modal
+                    closeButton.onclick = function () {
+                        document.body.removeChild(modalDiv); // Remove o modal do body
+                    };
+
+                    // Adiciona o contêiner de aspecto e o botão ao modal
+                    modalDiv.appendChild(aspectRatioContainer);
+                    modalDiv.appendChild(closeButton);
+
+                    // Adiciona o modal ao body
+                    document.body.appendChild(modalDiv);
+                }
+
+
+
 
                 function handleClick2() {
                     console.log("clicado2");
                 }
-                
+
                 function handleClic3k() {
                     console.log("clicado3");
                 }
@@ -401,12 +476,13 @@
                 }
                 function MyComponent() {
                     // Chama a função diretamente no corpo do componente
-                    handleClick();}
-                    MyComponent();
+                    handleClick();
+                }
+                MyComponent();
                 return (0, n.jsxs)(n.Fragment, {
                     children: [(0, n.jsx)("h1", {
                         className: "vh",
-                        children: ""
+                        children: "Rauno Freiberg. Devouring details. Nourishing novelty. Deploying excellence."
                     }), (0, n.jsx)(A.x, {
                         as: a.E.div,
                         css: {
@@ -415,7 +491,7 @@
                             "--grid-border": "var(--grid-width) solid var(--colors-gray4)",
                             "--crosshair-size": "calc(var(--grid-cell-size) / 4)",
                             height: "100vh",
-                            
+
                             touchAction: "none"
                         },
                         onTouchStart: () => {
@@ -432,8 +508,8 @@
                         onTouchEnd: () => {
                             h.current.forEach(Q)
                         },
-                        
-                       
+
+
                         children: (0, n.jsxs)(A.x, {
                             ref: f,
                             as: a.E.div,
@@ -503,43 +579,7 @@
                                     gridColumn: "".concat(19, " / ").concat(20),
                                     gridRow: "".concat(16, " / span 1")
                                 }
-                            }), (0, n.jsx)(k, {
-
-                                href: "Plataforma TLM Geral",
-                                onClick: (event) => {
-                                    event.preventDefault(); // Impede a navegação padrão do link
-                                    handleClick(); // Chama a função handleClick
-                                },
-                                src: (0, C.jj)("/assets/Plataforma_TLM_Geral.mp4"),
-                                shadow: {
-                                    default: "#193A3E55",
-                                    pressed: "#00132960"
-                                },
-                                style: {
-                                    gridColumn: "15 / 13",
-                                    gridRow: "15 / 12"
-                                }
-                            }), (0, n.jsx)(k, {
-                                placeholder: "data:image/png;base64,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",
-                                href: "Opções de operação",
-                                alt: "",
-                                onClick: (event) => {
-                                    event.preventDefault(); // Impede a navegação padrão do link
-                                    handleClick2(); // Chama a função handleClick
-                                },
-                                src: (0, C.jj)("assets/Opes_Lic_Sup.mp4"),
-
-                                shadow: {
-                                    default: "#392C9C50",
-                                    pressed: "#1C154C60",
-
-                                },
-                                style: {
-                                    gridColumn: "11 / 9",
-                                    gridRow: "18 / 15",
-
-                                }
-                            }), (0, n.jsx)(k, {
+                            }),  (0, n.jsx)(k, {
                                 href: "https://www.tlm.net.br/",
                                 alt: "Person laying on bed with hands behind their head, the photo has a vignette on the edges, suggesting that it was captured from behind an object, say a closet.",
                                 src: "assets/logo-tlm.png",
@@ -549,35 +589,7 @@
                                     gridRow: "18 / 16",
 
                                 }
-                            }), (0, n.jsx)(k, {
-                                placeholder: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABkAAAATCAIAAADqEDFSAAAACXBIWXMAAAAAAAAD6AF+hNEZAAAE40lEQVQ4jT3RaW/aBgDGcX/VvZy0atKqdk2yplmzdU0byAHhaCAJIZAY24DvG3MEsA3Y2AYD5jKBAAnJtmpfYGKb9gV++ut5AL3drhtm027r7bbWthqWobfbjVZLbRqyptVMQ2lqrCTdymVBEhiepgUap/EMns1kEZzEpLzAC7QgMvm8CJi9nt62a4bRaLWaHbtumXXL0Not1TBy5UpZlfOVIieyBIXyIkOxJEqgnMDmJBEn8AyaoVgqg2VpluJ5BrB6PctxGi3TtC3NqMlq2TDrPcd0HMsw5GKBuE6cshxqmkqpSIp8hqXTDJ0WODwnUJLElko8x9MYgVE0AbT6fc22Oz1rtejOJ+bzsv/nk/v1efL1yX2YttQyfvDh5fXF0V9/TOoVjIRDOBTgsGglB1k1tmsWukbuNPAxFr+gWQpo2nZVbzp9czltTcfGw333adH/feU+P46nY0MuYb7PP15FPU+PfaWE4VAYh4IcdlEWEUNlO818tykef946Oz8VRA6om00uLzXqxdlYvxvqy2lnbT26T8vhZKjLRdT36U0y6n16cKqFDLHuWluVHNyUaUsTOkbO59n2Hu4TJAYUK3k+JzTqxelIc/uNxZ29mjvPy9HTYjAZNNbW5zfX54erRa+SRwg4TEBBHj+vSlBTWVu2IQa8O8FQIAWBgFSUaI7R6sW7oTbu1+eT9uO897QYruYDd6ApRcy/vwHGjlbLXkWCcThEImGRiFUl2FSZdkOwNf7E+zMIJtY/ilKOoAlVzk2G2sip3U+sfyYbrOaO26+rJezEswHGjtddEoxDwbVFxuQ8bKpUS+NsjQscvE9ex3meBmiWRdCsXBEmg8awV5uNzeWsu5o7j/ddt19TS1jAs5mKHa/m3bKYIpEQlf6Soy7XlkJZddZusIGDnZubq0JBBEiagrMZucpPBrVBV5mO9MXUfrjvLme269Rqt1jAs5GK+R7v7VsxRcAhCllbSgExFNKqMbbGnXh3Li8jFI0CQi6XRtFqmXcdZdBR7obafNJaW1Pb7alqCQ94NqC4/2HW+tcikfD/lq1xXZ33e9+dRoIYngGkQoGgaKUqjDqyY8vuoD5zjcXUXty1xl1FLeFBzyZ06V9MzFsBxOEQAYckOq4U0qZC2eu9WL/nXSQSEngaEEQeJQi5wo/sitOujpzadKTfT6yZa4w7ilrCgt5N8OJo7jbLYgqH1laBTSgFxFSojs7bDca3v30aCTEsAVA0lcHQtdWuDNpV16ndDfV715yNm6OOrJawsHcLPD+cjfSyCGKpIA79Z1kq09H5js4d7m35fYckkQayWBaEU8U82beKPaM4tMuTQW3uGnO3eddX9QoZ9m7enB8s70xZgig4RCPhEp+slTLtOtPROLtBf9p9FQr6cBQBaIaEEDh5fZWIR6ORk2gkEAoc+o8+7e/t7v26vb31w4tvv9l49Z1n793OTy+3Xr94u/H97vbr33a3Dj+/93k/HO3vfvzlLXhzhWMIIAo8hmcphqIYmqAIiiFQLAOmEpeXZ9FoyO87OD70RL8E4rHTi/Nw5MvJWTQUj58l4hfgdRwCk9k0xJAYmoXRLAxk0QyEgDzPiiInSXwux3IcRVBoFkPSWSiVSt4kL1Ng4jp5mUhcQKkkCMYZCsMwBMfTJJGmKZShUAJLUyT6N8mPFWumql/3AAAAAElFTkSuQmCC",
-                                href: "http://127.0.0.1:5500/assets/Integração.mp4",
-                                onClick: (event) => {
-                                    event.preventDefault(); // Impede a navegação padrão do link
-                                    handleClic3k(); // Chama a função handleClick
-                                },
-                                src: (0, C.jj)("assets/Integrao.mp4", 1),
-                                style: {
-                                    gridColumn: "22 / 20",
-                                    gridRow: "19 / 16"
-                                }
-                            }), (0, n.jsx)(k, {
-                                placeholder: "data:image/png;base64,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",
-                                href: "http://127.0.0.1:5500/assets/direo.mp4",
-                                onClick: (event) => {
-                                    event.preventDefault(); // Impede a navegação padrão do link
-                                    handleClic4k(); // Chama a função handleClick
-                                },
-                                src: (0, C.jj)("assets/direo.mp4"),
-                                shadow: {
-                                    default: "#3F251C55",
-                                    pressed: "#2A191360"
-                                },
-                                style: {
-                                    gridColumn: "14 / 12",
-                                    gridRow: "22 / 19"
-                                }
-                            }), Array(1e3).fill(null).map((e, t) => (0, n.jsx)(N, {
+                            }),  Array(1e3).fill(null).map((e, t) => (0, n.jsx)(N, {
                                 onMouseDown: S
                             }, t))]
                         })
@@ -696,7 +708,7 @@
                         onPointerEnter: e => {
                             "touch" !== e.pointerType && b(!0)
                         },
-                        
+
                         onMouseLeave: () => b(!1),
                         ...m,
                         children: x ? (0, n.jsxs)(A.x, {
