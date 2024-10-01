@@ -353,7 +353,7 @@
                     })
                 }
 
-                function handleClick() {
+                function tile1() {
                     console.log("clicado");
 
                     // Verifica se o card já existe
@@ -366,8 +366,8 @@
                         cardDiv.style.left = "50%";
                         cardDiv.style.transform = "translate(-50%, -50%)"; // Centraliza o card
                         cardDiv.style.opacity = "1";
-                        cardDiv.style.width = "10%";
-                        cardDiv.style.height = "10%"; // Ajuste para que a altura seja proporcional
+                        cardDiv.style.width = "5%";
+                        cardDiv.style.height = "5%"; // Ajuste para que a altura seja proporcional
                         cardDiv.style.backgroundColor = "#ffff";
                         cardDiv.style.boxShadow = "0 4px 8px rgba(0, 0, 0, 0.2)";
                         cardDiv.style.zIndex = "1000";
@@ -383,6 +383,84 @@
                         // Adiciona um evento de clique à imagem
                         imgElement.onclick = function () {
                             openModal(); // Chama a função para abrir o modal
+                        };
+
+                        // Adiciona a imagem ao card
+                        cardDiv.appendChild(imgElement);
+
+                        // Adiciona o card ao body
+                        document.body.appendChild(cardDiv);
+                    }
+                }
+                function tile2() {
+                    console.log("clicado");
+
+                    // Verifica se o card já existe
+                    if (!document.getElementById("icon2")) {
+                        // Cria o elemento div para o card
+                        const cardDiv = document.createElement("div");
+                        cardDiv.id = "icon2"; // Define um id para o card
+                        cardDiv.style.position = "fixed";
+                        cardDiv.style.top = "65%";
+                        cardDiv.style.left = "60%";
+                        cardDiv.style.transform = "translate(-50%, -50%)"; // Centraliza o card
+                        cardDiv.style.opacity = "1";
+                        cardDiv.style.width = "5%";
+                        cardDiv.style.height = "5%"; // Ajuste para que a altura seja proporcional
+                        cardDiv.style.backgroundColor = "#ffff";
+                        cardDiv.style.boxShadow = "0 4px 8px rgba(0, 0, 0, 0.2)";
+                        cardDiv.style.zIndex = "1000";
+                        cardDiv.style.borderRadius = "10px";
+                        cardDiv.style.overflow = "hidden";
+
+                        const imgElement = document.createElement("img");
+                        imgElement.src = "assets/.png"; // Caminho para o arquivo da imagem
+                        imgElement.alt = "Icon2"; // Adiciona texto alternativo para a imagem
+                        imgElement.style.width = "100%"; // Garantir que a imagem preencha a largura do card
+                        imgElement.style.height = "100%"; // Ajuste para preencher a altura
+
+                        // Adiciona um evento de clique à imagem
+                        imgElement.onclick = function () {
+                            openModal2(); // Chama a função para abrir o modal
+                        };
+
+                        // Adiciona a imagem ao card
+                        cardDiv.appendChild(imgElement);
+
+                        // Adiciona o card ao body
+                        document.body.appendChild(cardDiv);
+                    }
+                }
+                function tile3() {
+                    console.log("clicado");
+
+                    // Verifica se o card já existe
+                    if (!document.getElementById("icon3")) {
+                        // Cria o elemento div para o card
+                        const cardDiv = document.createElement("div");
+                        cardDiv.id = "icon3"; // Define um id para o card
+                        cardDiv.style.position = "fixed";
+                        cardDiv.style.top = "65%";
+                        cardDiv.style.left = "20%";
+                        cardDiv.style.transform = "translate(-50%, -50%)"; // Centraliza o card
+                        cardDiv.style.opacity = "1";
+                        cardDiv.style.width = "5%";
+                        cardDiv.style.height = "5%"; // Ajuste para que a altura seja proporcional
+                        cardDiv.style.backgroundColor = "#ffff";
+                        cardDiv.style.boxShadow = "0 4px 8px rgba(0, 0, 0, 0.2)";
+                        cardDiv.style.zIndex = "1000";
+                        cardDiv.style.borderRadius = "10px";
+                        cardDiv.style.overflow = "hidden";
+
+                        const imgElement = document.createElement("img");
+                        imgElement.src = "assets/.png"; // Caminho para o arquivo da imagem
+                        imgElement.alt = "Icon3"; // Adiciona texto alternativo para a imagem
+                        imgElement.style.width = "100%"; // Garantir que a imagem preencha a largura do card
+                        imgElement.style.height = "100%"; // Ajuste para preencher a altura
+
+                        // Adiciona um evento de clique à imagem
+                        imgElement.onclick = function () {
+                            openModal2(); // Chama a função para abrir o modal
                         };
 
                         // Adiciona a imagem ao card
@@ -461,22 +539,11 @@
                     document.body.appendChild(modalDiv);
                 }
 
-
-
-
-                function handleClick2() {
-                    console.log("clicado2");
-                }
-
-                function handleClic3k() {
-                    console.log("clicado3");
-                }
-                function handleClic4k() {
-                    console.log("clicado4");
-                }
                 function MyComponent() {
                     // Chama a função diretamente no corpo do componente
-                    handleClick();
+                    tile1();
+                    tile2();
+                    tile3();
                 }
                 MyComponent();
                 return (0, n.jsxs)(n.Fragment, {
