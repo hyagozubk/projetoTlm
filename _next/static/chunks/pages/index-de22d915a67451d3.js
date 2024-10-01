@@ -353,7 +353,7 @@
                     })
                 }
 
-                function handleClick() {
+                function tile1() {
                     console.log("clicado");
 
                     // Verifica se o card já existe
@@ -362,12 +362,12 @@
                         const cardDiv = document.createElement("div");
                         cardDiv.id = "icon"; // Define um id para o card
                         cardDiv.style.position = "fixed";
-                        cardDiv.style.top = "20%";
+                        cardDiv.style.top = "15%";
                         cardDiv.style.left = "50%";
                         cardDiv.style.transform = "translate(-50%, -50%)"; // Centraliza o card
                         cardDiv.style.opacity = "1";
-                        cardDiv.style.width = "10%";
-                        cardDiv.style.height = "10%"; // Ajuste para que a altura seja proporcional
+                        cardDiv.style.width = "5%";
+                        cardDiv.style.height = "5%"; // Ajuste para que a altura seja proporcional
                         cardDiv.style.backgroundColor = "#ffff";
                         cardDiv.style.boxShadow = "0 4px 8px rgba(0, 0, 0, 0.2)";
                         cardDiv.style.zIndex = "1000";
@@ -375,7 +375,7 @@
                         cardDiv.style.overflow = "hidden";
 
                         const imgElement = document.createElement("img");
-                        imgElement.src = "assets/tlm.png"; // Caminho para o arquivo da imagem
+                        imgElement.src = "assets/icon1.png"; // Caminho para o arquivo da imagem
                         imgElement.alt = "Icon"; // Adiciona texto alternativo para a imagem
                         imgElement.style.width = "100%"; // Garantir que a imagem preencha a largura do card
                         imgElement.style.height = "100%"; // Ajuste para preencher a altura
@@ -476,7 +476,7 @@
                 }
                 function MyComponent() {
                     // Chama a função diretamente no corpo do componente
-                    handleClick();
+                    tile1();
                 }
                 MyComponent();
                 return (0, n.jsxs)(n.Fragment, {
