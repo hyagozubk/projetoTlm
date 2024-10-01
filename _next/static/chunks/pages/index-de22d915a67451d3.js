@@ -459,9 +459,9 @@
                         imgElement.style.height = "100%"; // Ajuste para preencher a altura
 
                         // Adiciona um evento de clique à imagem
-                        imgElement.onclick = function () {
-                            openModal3(); // Chama a função para abrir o modal
-                        };
+                        //imgElement.onclick = function () {
+                           //openModal3(); // Chama a função para abrir o modal
+                       // };
 
                         // Adiciona a imagem ao card
                         cardDiv.appendChild(imgElement);
