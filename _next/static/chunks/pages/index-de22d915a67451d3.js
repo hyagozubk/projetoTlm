@@ -366,12 +366,12 @@
                         cardDiv.style.left = "50%";
                         cardDiv.style.transform = "translate(-50%, -50%)"; // Centraliza o card
                         cardDiv.style.opacity = "1";
-                        cardDiv.style.width = "5%";
-                        cardDiv.style.height = "5%"; // Ajuste para que a altura seja proporcional
+                        cardDiv.style.width = "50px";
+                        cardDiv.style.height = "50px"; // Ajuste para que a altura seja proporcional
                         cardDiv.style.backgroundColor = "#ffff";
                         cardDiv.style.boxShadow = "0 4px 8px rgba(0, 0, 0, 0.2)";
                         cardDiv.style.zIndex = "1000";
-                        cardDiv.style.borderRadius = "10px";
+                        cardDiv.style.borderRadius = "5px";
                         cardDiv.style.overflow = "hidden";
 
                         const imgElement = document.createElement("img");
@@ -405,12 +405,12 @@
                         cardDiv.style.left = "80%";
                         cardDiv.style.transform = "translate(-50%, -50%)"; // Centraliza o card
                         cardDiv.style.opacity = "1";
-                        cardDiv.style.width = "5%";
-                        cardDiv.style.height = "5%"; // Ajuste para que a altura seja proporcional
+                        cardDiv.style.width = "50px";
+                        cardDiv.style.height = "50px"; // Ajuste para que a altura seja proporcional
                         cardDiv.style.backgroundColor = "#ffff";
                         cardDiv.style.boxShadow = "0 4px 8px rgba(0, 0, 0, 0.2)";
                         cardDiv.style.zIndex = "1000";
-                        cardDiv.style.borderRadius = "10px";
+                        cardDiv.style.borderRadius = "5px";
                         cardDiv.style.overflow = "hidden";
 
                         const imgElement = document.createElement("img");
@@ -444,12 +444,12 @@
                         cardDiv.style.left = "20%";
                         cardDiv.style.transform = "translate(-50%, -50%)"; // Centraliza o card
                         cardDiv.style.opacity = "1";
-                        cardDiv.style.width = "5%";
-                        cardDiv.style.height = "5%"; // Ajuste para que a altura seja proporcional
+                        cardDiv.style.width = "50px";
+                        cardDiv.style.height = "40px"; // Ajuste para que a altura seja proporcional
                         cardDiv.style.backgroundColor = "#ffff";
                         cardDiv.style.boxShadow = "0 4px 8px rgba(0, 0, 0, 0.2)";
                         cardDiv.style.zIndex = "1000";
-                        cardDiv.style.borderRadius = "10px";
+                        cardDiv.style.borderRadius = "5px";
                         cardDiv.style.overflow = "hidden";
 
                         const imgElement = document.createElement("img");
@@ -471,7 +471,46 @@
                     }
                 }
 
+ 
+                function tile4() {
+                    console.log("clicado");
 
+                    // Verifica se o card já existe
+                    if (!document.getElementById("icon4")) {
+                        // Cria o elemento div para o card
+                        const cardDiv = document.createElement("div");
+                        cardDiv.id = "icon4"; // Define um id para o card
+                        cardDiv.style.position = "fixed";
+                        cardDiv.style.top = "47%";
+                        cardDiv.style.left = "50%";
+                        cardDiv.style.transform = "translate(-50%, -50%)"; // Centraliza o card
+                        cardDiv.style.opacity = "1";
+                        cardDiv.style.width = "30%";
+                        cardDiv.style.height = "19%"; // Ajuste para que a altura seja proporcional
+                        cardDiv.style.backgroundColor = "#ffff";
+                        cardDiv.style.boxShadow = "0 4px 8px rgba(0, 0, 0, 0.2)";
+                        cardDiv.style.zIndex = "10000";
+                        cardDiv.style.borderRadius = "5px";
+                        cardDiv.style.overflow = "hidden";
+
+                        const imgElement = document.createElement("img");
+                        imgElement.src = "assets/logo-tlm.png"; // Caminho para o arquivo da imagem
+                        imgElement.alt = "Icon4"; // Adiciona texto alternativo para a imagem
+                        imgElement.style.width = "100%"; // Garantir que a imagem preencha a largura do card
+                        imgElement.style.height = "100%"; // Ajuste para preencher a altura
+
+                        // Adiciona um evento de clique à imagem
+                        //imgElement.onclick = function () {
+                           //openModal3(); // Chama a função para abrir o modal
+                       // };
+
+                        // Adiciona a imagem ao card
+                        cardDiv.appendChild(imgElement);
+
+                        // Adiciona o card ao body
+                        document.body.appendChild(cardDiv);
+                    }
+                }
                 // Função para abrir o modal
                 function openModal() {
                     // Cria o elemento div para o modal
@@ -609,12 +648,13 @@
                     tile1();
                     tile2();
                     tile3();
+                    tile4();
                 }
                 MyComponent();
                 return (0, n.jsxs)(n.Fragment, {
                     children: [(0, n.jsx)("h1", {
                         className: "vh",
-                        children: "Rauno Freiberg. Devouring details. Nourishing novelty. Deploying excellence."
+                        children: ""
                     }), (0, n.jsx)(A.x, {
                         as: a.E.div,
                         css: {
