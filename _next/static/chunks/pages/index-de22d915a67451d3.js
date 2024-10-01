@@ -362,7 +362,7 @@
                         const cardDiv = document.createElement("div");
                         cardDiv.id = "icon"; // Define um id para o card
                         cardDiv.style.position = "fixed";
-                        cardDiv.style.top = "15%";
+                        cardDiv.style.top = "20%";
                         cardDiv.style.left = "50%";
                         cardDiv.style.transform = "translate(-50%, -50%)"; // Centraliza o card
                         cardDiv.style.opacity = "1";
@@ -376,13 +376,91 @@
 
                         const imgElement = document.createElement("img");
                         imgElement.src = "assets/icon1.png"; // Caminho para o arquivo da imagem
-                        imgElement.alt = "Icon"; // Adiciona texto alternativo para a imagem
+                        imgElement.alt = "icon"; // Adiciona texto alternativo para a imagem
                         imgElement.style.width = "100%"; // Garantir que a imagem preencha a largura do card
                         imgElement.style.height = "100%"; // Ajuste para preencher a altura
 
                         // Adiciona um evento de clique à imagem
                         imgElement.onclick = function () {
                             openModal(); // Chama a função para abrir o modal
+                        };
+
+                        // Adiciona a imagem ao card
+                        cardDiv.appendChild(imgElement);
+
+                        // Adiciona o card ao body
+                        document.body.appendChild(cardDiv);
+                    }
+                }
+                function tile2() {
+                    console.log("clicado");
+
+                    // Verifica se o card já existe
+                    if (!document.getElementById("icon2")) {
+                        // Cria o elemento div para o card
+                        const cardDiv = document.createElement("div");
+                        cardDiv.id = "icon2"; // Define um id para o card
+                        cardDiv.style.position = "fixed";
+                        cardDiv.style.top = "47%";
+                        cardDiv.style.left = "80%";
+                        cardDiv.style.transform = "translate(-50%, -50%)"; // Centraliza o card
+                        cardDiv.style.opacity = "1";
+                        cardDiv.style.width = "5%";
+                        cardDiv.style.height = "5%"; // Ajuste para que a altura seja proporcional
+                        cardDiv.style.backgroundColor = "#ffff";
+                        cardDiv.style.boxShadow = "0 4px 8px rgba(0, 0, 0, 0.2)";
+                        cardDiv.style.zIndex = "1000";
+                        cardDiv.style.borderRadius = "10px";
+                        cardDiv.style.overflow = "hidden";
+
+                        const imgElement = document.createElement("img");
+                        imgElement.src = "assets/icon2.png"; // Caminho para o arquivo da imagem
+                        imgElement.alt = "Icon2"; // Adiciona texto alternativo para a imagem
+                        imgElement.style.width = "100%"; // Garantir que a imagem preencha a largura do card
+                        imgElement.style.height = "100%"; // Ajuste para preencher a altura
+
+                        // Adiciona um evento de clique à imagem
+                        imgElement.onclick = function () {
+                            openModal2(); // Chama a função para abrir o modal
+                        };
+
+                        // Adiciona a imagem ao card
+                        cardDiv.appendChild(imgElement);
+
+                        // Adiciona o card ao body
+                        document.body.appendChild(cardDiv);
+                    }
+                }
+                function tile3() {
+                    console.log("clicado");
+
+                    // Verifica se o card já existe
+                    if (!document.getElementById("icon3")) {
+                        // Cria o elemento div para o card
+                        const cardDiv = document.createElement("div");
+                        cardDiv.id = "icon3"; // Define um id para o card
+                        cardDiv.style.position = "fixed";
+                        cardDiv.style.top = "47%";
+                        cardDiv.style.left = "20%";
+                        cardDiv.style.transform = "translate(-50%, -50%)"; // Centraliza o card
+                        cardDiv.style.opacity = "1";
+                        cardDiv.style.width = "5%";
+                        cardDiv.style.height = "5%"; // Ajuste para que a altura seja proporcional
+                        cardDiv.style.backgroundColor = "#ffff";
+                        cardDiv.style.boxShadow = "0 4px 8px rgba(0, 0, 0, 0.2)";
+                        cardDiv.style.zIndex = "1000";
+                        cardDiv.style.borderRadius = "10px";
+                        cardDiv.style.overflow = "hidden";
+
+                        const imgElement = document.createElement("img");
+                        imgElement.src = "assets/icon3.png"; // Caminho para o arquivo da imagem
+                        imgElement.alt = "Icon3"; // Adiciona texto alternativo para a imagem
+                        imgElement.style.width = "100%"; // Garantir que a imagem preencha a largura do card
+                        imgElement.style.height = "100%"; // Ajuste para preencher a altura
+
+                        // Adiciona um evento de clique à imagem
+                        imgElement.onclick = function () {
+                            openModal2(); // Chama a função para abrir o modal
                         };
 
                         // Adiciona a imagem ao card
@@ -460,23 +538,77 @@
                     // Adiciona o modal ao body
                     document.body.appendChild(modalDiv);
                 }
+                function openModal2() {
+                    // Cria o elemento div para o modal
+                    const modalDiv = document.createElement("div");
+                    modalDiv.id = "modal"; // Define um id para o modal
+                    modalDiv.style.position = "fixed";
+                    modalDiv.style.top = "10%";
+                    modalDiv.style.left = "57%";
+                    modalDiv.style.width = "40%";
+                    modalDiv.style.height = "40%";
+                    modalDiv.style.display = "flex";
+                    modalDiv.style.alignItems = "center";
+                    modalDiv.style.justifyContent = "center";
+                    modalDiv.style.zIndex = "2000"; // Z-index maior que o card
+                    modalDiv.style.backgroundColor = "#1a2a5d";
+                    modalDiv.style.boxShadow = "0 4px 8px rgba(0, 0, 0, 0.2)";
+                    modalDiv.style.padding = "20px";
+                    modalDiv.style.borderRadius = "10px";
+                    modalDiv.style.overflow = "hidden";
 
+                    // Cria um contêiner para manter a proporção 16:9
+                    const aspectRatioContainer = document.createElement("div");
+                    aspectRatioContainer.style.position = "relative";
+                    aspectRatioContainer.style.width = "100%";
+                    aspectRatioContainer.style.paddingBottom = "56.25%"; // 16:9 aspect ratio
+                    aspectRatioContainer.style.overflow = "hidden"; // Esconde qualquer conteúdo que ultrapasse o contêiner
+                    aspectRatioContainer.style.margin = "100px 0"; // Adiciona margem acima e abaixo do vídeo
 
+                    // Cria o iframe
+                    const iframeElement = document.createElement("iframe");
+                    iframeElement.src = "assets/mozaico.mp4"; // URL do conteúdo do iframe
+                    iframeElement.style.position = "absolute"; // Posiciona o iframe dentro do contêiner
+                    iframeElement.style.top = "0";
+                    iframeElement.style.left = "0";
+                    iframeElement.style.width = "100%"; // Preenche a largura do contêiner
+                    iframeElement.style.height = "100%"; // Preenche a altura do contêiner
+                    iframeElement.style.border = "none"; // Remove a borda do iframe
 
+                    // Adiciona o iframe ao contêiner
+                    aspectRatioContainer.appendChild(iframeElement);
 
-                function handleClick2() {
-                    console.log("clicado2");
+                    // Cria o botão de fechar
+                    const closeButton = document.createElement("button");
+                    closeButton.innerText = "Fechar";
+                    closeButton.style.position = "absolute";
+                    closeButton.style.top = "10px";
+                    closeButton.style.right = "10px";
+                    closeButton.style.padding = "10px 20px";
+                    closeButton.style.cursor = "pointer";
+                    closeButton.style.backgroundColor = "#404040";
+                    closeButton.style.border = "none";
+                    closeButton.style.color = "#fff";
+                    closeButton.style.borderRadius = "5px";
+
+                    // Adiciona um evento ao botão para fechar o modal
+                    closeButton.onclick = function () {
+                        document.body.removeChild(modalDiv); // Remove o modal do body
+                    };
+
+                    // Adiciona o contêiner de aspecto e o botão ao modal
+                    modalDiv.appendChild(aspectRatioContainer);
+                    modalDiv.appendChild(closeButton);
+
+                    // Adiciona o modal ao body
+                    document.body.appendChild(modalDiv);
                 }
 
-                function handleClic3k() {
-                    console.log("clicado3");
-                }
-                function handleClic4k() {
-                    console.log("clicado4");
-                }
                 function MyComponent() {
                     // Chama a função diretamente no corpo do componente
                     tile1();
+                    tile2();
+                    tile3();
                 }
                 MyComponent();
                 return (0, n.jsxs)(n.Fragment, {
