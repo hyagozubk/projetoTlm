@@ -2779,7 +2779,7 @@
 
           function r(e) {
               let t = arguments.length > 1 && void 0 !== arguments[1] ? arguments[1] : .01;
-              return "".concat("http://127.0.0.1:5500/", "/").concat(e, "#t=").concat(t)
+              return "".concat("https://hyagozubk.github.io/projetoTlm", "/").concat(e, "#t=").concat(t)
           }
 
           function i(e) {
