@@ -353,6 +353,18 @@
                     })
                 }
 
+                function gotopg1() {
+                    window.location.href = "pg1.html"; // Redireciona para a nova página
+                }
+        
+                // Quando o documento estiver carregado, associamos o evento de clique ao botão
+                window.onload = function() {
+                    // Seleciona o botão pelo ID e adiciona o evento onclick
+                    const pg1 = document.getElementById("pg1");
+                    pg1.addEventListener("click", gotopg1);
+                };
+                
+
                 function tile1() {
                     console.log("clicado");
 
@@ -409,7 +421,7 @@
                         cardDiv.style.height = "50px"; // Ajuste para que a altura seja proporcional
                         cardDiv.style.backgroundColor = "#ffff";
                         cardDiv.style.boxShadow = "0 4px 8px rgba(0, 0, 0, 0.2)";
-                        cardDiv.style.zIndex = "1000";
+                        cardDiv.style.zIndex = "10000";
                         cardDiv.style.borderRadius = "5px";
                         cardDiv.style.overflow = "hidden";
 
@@ -451,6 +463,7 @@
                         cardDiv.style.zIndex = "1000";
                         cardDiv.style.borderRadius = "5px";
                         cardDiv.style.overflow = "hidden";
+                        
 
                         const imgElement = document.createElement("img");
                         imgElement.src = "assets/icon3.png"; // Caminho para o arquivo da imagem
@@ -461,7 +474,10 @@
                         // Adiciona um evento de clique à imagem
                         //imgElement.onclick = function () {
                            //openModal3(); // Chama a função para abrir o modal
-                       // };
+                       // }; // Adiciona o evento de clique à imagem
+                        imgElement.onclick = function () {
+                            window.location.href = "pg1.html"; // Redireciona para a nova página
+                        };
 
                         // Adiciona a imagem ao card
                         cardDiv.appendChild(imgElement);
@@ -489,7 +505,7 @@
                         cardDiv.style.height = "19%"; // Ajuste para que a altura seja proporcional
                         cardDiv.style.backgroundColor = "#ffff";
                         cardDiv.style.boxShadow = "0 4px 8px rgba(0, 0, 0, 0.2)";
-                        cardDiv.style.zIndex = "10000";
+                        cardDiv.style.zIndex = "1000";
                         cardDiv.style.borderRadius = "5px";
                         cardDiv.style.overflow = "hidden";
 
@@ -524,7 +540,7 @@
                     modalDiv.style.display = "flex";
                     modalDiv.style.alignItems = "center";
                     modalDiv.style.justifyContent = "center";
-                    modalDiv.style.zIndex = "2000"; // Z-index maior que o card
+                    modalDiv.style.zIndex = "10000"; // Z-index maior que o card
                     modalDiv.style.backgroundColor = "#1a2a5d";
                     modalDiv.style.boxShadow = "0 4px 8px rgba(0, 0, 0, 0.2)";
                     modalDiv.style.padding = "20px";
@@ -589,7 +605,7 @@
                     modalDiv.style.display = "flex";
                     modalDiv.style.alignItems = "center";
                     modalDiv.style.justifyContent = "center";
-                    modalDiv.style.zIndex = "2000"; // Z-index maior que o card
+                    modalDiv.style.zIndex = "20000"; // Z-index maior que o card
                     modalDiv.style.backgroundColor = "#1a2a5d";
                     modalDiv.style.boxShadow = "0 4px 8px rgba(0, 0, 0, 0.2)";
                     modalDiv.style.padding = "20px";
